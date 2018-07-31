@@ -31,7 +31,7 @@ class ZDLaunchAdButton: UIButton {
     
     private let skipTitle = "跳过"
     
-    private let S = "s"
+    private let s = "s"
     
     //MARK:- 属性设置
     private var skipType: SkipType = .none
@@ -123,7 +123,7 @@ extension ZDLaunchAdButton {
         case .none:
             isHidden = true
         case .squareTime, .roundTime, .roundProgressTime:
-            timeLabel.text = "\(duration)" + S
+            timeLabel.text = "\(duration)" + s
         case .squareText, .roundText, .roundProgressText:
             timeLabel.text = skipTitle
         case .squareTimeText:

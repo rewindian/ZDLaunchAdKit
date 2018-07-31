@@ -38,7 +38,7 @@ class ZDLaunchAdConfiguration {
     /// 设置开屏广告的frame(default [UIScreen mainScreen].bounds)
     var frame = UIScreen.main.bounds
     
-    /// 程序从后台恢复时,是否需要展示广告(defailt NO)
+    /// 程序从后台恢复时,是否需要展示广告(defailt false)
     var showEnterForeground = false
     
     /// 点击打开页面参数
@@ -63,10 +63,10 @@ class ZDLaunchImageAdConfiguration: ZDLaunchAdConfiguration {
     /// 图片广告缩放模式(default UIViewContentModeScaleToFill)
     var contentMode: UIViewContentMode = .scaleToFill
     
-    /// 缓存机制(default XHLaunchImageDefault)
+    /// 缓存机制(default)
     var imageOption: ZDLaunchAdImageOptions = .default
     
-    /// 设置GIF动图是否只循环播放一次(YES:只播放一次,NO:循环播放,default NO,仅对动图设置有效)
+    /// 设置GIF动图是否只循环播放一次(true:只播放一次,false:循环播放,default false,仅对动图设置有效)
     var gifImageCycleOnce = false
 }
 
@@ -79,7 +79,7 @@ class ZDLaunchVideoAdConfiguration: ZDLaunchAdConfiguration {
     /// 视频缩放模式(default AVLayerVideoGravityResizeAspectFill)
     var videoGravity: AVLayerVideoGravity = .resizeAspectFill
     
-    /// 设置视频是否只循环播放一次(YES:只播放一次,NO循环播放,default YES)
+    /// 设置视频是否只循环播放一次(true:只播放一次,false循环播放,default true)
     var isVideoCycleOnce = true
     
     /// 是否关闭音频(default NO)

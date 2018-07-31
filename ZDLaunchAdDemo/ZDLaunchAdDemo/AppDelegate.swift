@@ -68,7 +68,22 @@ extension AppDelegate {
         imageAdConfiguration.skipButtonType = .roundTime
         imageAdConfiguration.showEnterForeground = false
         
-        ZDLaunchAd.setLaunchAdType(.image).setSourceType(.launchImage).setImageAdConfiguration(imageAdConfiguration, delegate: self)
+        //  一定要设置数据等待时间 一般情况下 广告配置与广告类型都是通过网络请求获取的 虽然可以链式编写 实际开发中建议这样写
+        /*
+        ZDLaunchAd.setWaitDataDuration(5).setSourceType(.launchImage)
+        
+        networkRequest.success = { model in
+            ZDLaunchAd.setLaunchAdType(.image).setImageAdConfiguration(imageAdConfiguration, delegate: self)
+        }
+        
+        networkRequest.failed = { error in
+            
+        }
+        */
+        
+        ZDLaunchAd.setWaitDataDuration(5).setSourceType(.launchImage)
+                  .setLaunchAdType(.image)
+                  .setImageAdConfiguration(imageAdConfiguration, delegate: self)
         
     }
     
@@ -85,7 +100,9 @@ extension AppDelegate {
         //videoAdConfiguration.subViews = [alreadyView()]
         //videoAdConfiguration.customSkipView = customSkipButton()
         //videoAdConfiguration.isMuted = true
-        ZDLaunchAd.setLaunchAdType(.video).setSourceType(.launchImage).setVideoAdConfiguration(videoAdConfiguration, delegate: self).setWaitDataDuration(15)
+        ZDLaunchAd.setWaitDataDuration(5).setSourceType(.launchImage)
+                  .setLaunchAdType(.video)
+                  .setVideoAdConfiguration(videoAdConfiguration, delegate: self)
     }
     
     /// 自定义控件

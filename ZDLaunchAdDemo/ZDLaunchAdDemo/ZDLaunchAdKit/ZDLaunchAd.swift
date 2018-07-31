@@ -96,13 +96,9 @@ class ZDLaunchAd {
     /// 启动图类型
     private var sourceType: SourceType = .launchImage
     
-    /// 数据等待时间
-    private var waitDataDuration: Int = 3 {
+    /// 等待数据回来的时间
+    private var waitDataDuration: Int! {
         didSet {
-            let configuration = commonConfiguration()
-            if configuration.duration >= waitDataDuration {
-                waitDataDuration = waitDataDuration + 1
-            }
             startWaitDataDispathTimer()
         }
     }
@@ -638,9 +634,9 @@ extension ZDLaunchAd {
         skipTimer.resume()
     }
     
-    /// 广告停留倒计时配置
+    /// 等待网络请求数据倒计时配置
     private func startWaitDataDispathTimer() {
-        var duration = waitDataDuration
+        var duration = waitDataDuration == nil ? 3 : waitDataDuration!
         
         let period = 1.0
         let waitDataTimer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
