@@ -30,7 +30,9 @@ extension String {
     }
 }
 
+
 //MARK:- md5加密
+/*
 extension String {
     
     /// 加密
@@ -48,6 +50,7 @@ extension String {
         return String(format: hash as String)
     }
 }
+ */
 
 // MARK: - 通过Data判断图片类型, Frome Kingfisher
 

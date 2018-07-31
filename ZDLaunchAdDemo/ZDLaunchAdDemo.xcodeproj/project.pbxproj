@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61CD691521105A8B00D7A208 /* SwiftMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CD691421105A8B00D7A208 /* SwiftMD5.swift */; };
 		61EFF78521095C440066F816 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EFF78421095C440066F816 /* AppDelegate.swift */; };
 		61EFF78721095C440066F816 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EFF78621095C440066F816 /* ViewController.swift */; };
 		61EFF78A21095C440066F816 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61EFF78821095C440066F816 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61CD691421105A8B00D7A208 /* SwiftMD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMD5.swift; sourceTree = "<group>"; };
 		61EFF78121095C440066F816 /* ZDLaunchAdDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZDLaunchAdDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61EFF78421095C440066F816 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61EFF78621095C440066F816 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				61EFF7B3210B09310066F816 /* ZDLaunchImageView.swift */,
 				61EFF7BB210E9F910066F816 /* ZDLaunchAdView.swift */,
 				61EFF7B7210B1FC30066F816 /* UIImage+Gif.swift */,
+				61CD691421105A8B00D7A208 /* SwiftMD5.swift */,
 				61EFF79F21097B040066F816 /* ZDLaunchAdDemo-Bridging-Header.h */,
 			);
 			path = ZDLaunchAdKit;
@@ -259,6 +262,7 @@
 				61EFF7B8210B1FC30066F816 /* UIImage+Gif.swift in Sources */,
 				61EFF7BC210E9F910066F816 /* ZDLaunchAdView.swift in Sources */,
 				61EFF78521095C440066F816 /* AppDelegate.swift in Sources */,
+				61CD691521105A8B00D7A208 /* SwiftMD5.swift in Sources */,
 				61EFF7C0210EB5070066F816 /* ZDLaunchAd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
