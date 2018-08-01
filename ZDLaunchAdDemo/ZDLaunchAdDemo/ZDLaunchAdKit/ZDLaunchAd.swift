@@ -439,7 +439,13 @@ extension ZDLaunchAd {
                 
                 self.delegate?.launchAd(launchAd: self, imageDownoadFinish: image, imageData: data, url: url)
                 
-                adImageView.image = image
+                if let realData = data, realData.imageFormat == .GIF {
+                    let gifImage = UIImage.gif(data: realData)
+                    adImageView.image = gifImage
+                }else {
+                    adImageView.image = image
+                }
+                
                 self.delegate?.launchAd(launchAd: self, imageView: adImageView, url: url)
                 
             }
@@ -447,7 +453,12 @@ extension ZDLaunchAd {
         //  本地
             if !imageAdConfiguration.imageNameOrURLString.isEmpty {
                 guard let data = Data.getData(by: configuration.imageNameOrURLString) else {
-                    self.delegate?.launchAd(launchAd: self, imageDownoadFinish: nil, imageData: nil, url: nil)
+                    
+                    //  这个代理回调必须回到主线程执行才能成功 目前不知为啥
+                    DispatchQueue.main.async {
+                       self.delegate?.launchAd(launchAd: self, imageDownoadFinish: nil, imageData: nil, url: nil)
+                    }
+                    
                     return
                 }
                 
@@ -458,7 +469,9 @@ extension ZDLaunchAd {
                     adImageView.image = UIImage(data: data)
                 }
                 
-                self.delegate?.launchAd(launchAd: self, imageDownoadFinish: UIImage(data: data), imageData: data, url: nil)
+                DispatchQueue.main.async {
+                    self.delegate?.launchAd(launchAd: self, imageDownoadFinish: UIImage(data: data), imageData: data, url: nil)
+                }
                 
             }else {
                 print("未设置广告图")
@@ -522,13 +535,22 @@ extension ZDLaunchAd {
                 guard let pathUrl = ZDLaunchAdCacheManager.getCacheVideoFileUrlWithUrl(url) else {
                     return
                 }
-                delegate?.launchAd(launchAd: self, videoDownloadFinish: pathUrl)
+                
+                DispatchQueue.main.async {
+                    self.delegate?.launchAd(launchAd: self, videoDownloadFinish: pathUrl)
+                }
                 
                 adVideoView.contentUrl = pathUrl
                 adVideoView.isMuted = configuration.isMuted
+                adVideoView.videoGravity = configuration.videoGravity
                 adVideoView.player?.play()
                 
             }else {
+                
+                DispatchQueue.main.async {
+                    self.delegate?.launchAdShowDefaultAdImage(launchAd: self)
+                }
+                
                 ZDLaunchAdDownloadManager.shared.downloadVideo(url: url, progressCallback: { (total, current) in
                     self.delegate?.launchAd(launchAd: self, videoDownloadProgress: Double(current) / Double(total), total: total, current: current)
                 }) { (location, error) in
@@ -566,7 +588,9 @@ extension ZDLaunchAd {
                 }
                 
                 delegate?.launchAd(launchAd: self, videoDownloadFinish: pathUrl)
+                
                 adVideoView.contentUrl = pathUrl
+                adVideoView.videoGravity = configuration.videoGravity
                 adVideoView.isMuted = configuration.isMuted
                 adVideoView.player?.play()
                 
@@ -606,7 +630,7 @@ extension ZDLaunchAd {
         var duration = configuration.duration
         
         if configuration.skipButtonType == .roundProgressTime || configuration.skipButtonType == .roundProgressText {
-            skipButton.startRoundDispathTimer(duration: CGFloat(duration))
+            skipButton?.startRoundDispathTimer(duration: CGFloat(duration))
         }
         
         let period = 1.0
@@ -702,13 +726,13 @@ extension ZDLaunchAd {
         waitDataTimer = nil
         skipTimer?.cancel()
         skipTimer = nil
-        //skipButton = nil
+        skipButton = nil
         
-//        if launchAdType == .video {
-//            adVideoView.stopVideoPlayer()
-//            adVideoView.removeFromSuperview()
-//            adVideoView = nil
-//        }
+        if launchAdType == .video {
+            adVideoView?.stopVideoPlayer()
+            adVideoView?.removeFromSuperview()
+            adVideoView = nil
+        }
         
         if window != nil {
             for subView in window.subviews {
@@ -746,7 +770,7 @@ extension ZDLaunchAd {
         }
     }
 
-    /// 清楚除了启动页之外的子控件
+    /// 清除除了启动页之外的子控件
     private func removeSubviewsExpectLaunchAdImageView() {
         guard let realWindow = window else { return }
         for subview in realWindow.subviews {

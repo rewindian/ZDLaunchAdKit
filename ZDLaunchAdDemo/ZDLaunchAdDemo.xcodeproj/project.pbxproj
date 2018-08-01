@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		61CD691521105A8B00D7A208 /* SwiftMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CD691421105A8B00D7A208 /* SwiftMD5.swift */; };
+		61CD691D211144E900D7A208 /* ad_douyin.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 61CD691C211144E900D7A208 /* ad_douyin.mp4 */; };
+		61CD691F211152DB00D7A208 /* AppDelegate+LaunchAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CD691E211152DB00D7A208 /* AppDelegate+LaunchAd.swift */; };
 		61EFF78521095C440066F816 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EFF78421095C440066F816 /* AppDelegate.swift */; };
 		61EFF78721095C440066F816 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EFF78621095C440066F816 /* ViewController.swift */; };
 		61EFF78A21095C440066F816 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61EFF78821095C440066F816 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		61CD691421105A8B00D7A208 /* SwiftMD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMD5.swift; sourceTree = "<group>"; };
+		61CD691C211144E900D7A208 /* ad_douyin.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ad_douyin.mp4; sourceTree = "<group>"; };
+		61CD691E211152DB00D7A208 /* AppDelegate+LaunchAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LaunchAd.swift"; sourceTree = "<group>"; };
 		61EFF78121095C440066F816 /* ZDLaunchAdDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZDLaunchAdDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61EFF78421095C440066F816 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61EFF78621095C440066F816 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				61EFF7C3210F11930066F816 /* Source */,
 				61EFF79621095C5E0066F816 /* ZDLaunchAdKit */,
 				61EFF78421095C440066F816 /* AppDelegate.swift */,
+				61CD691E211152DB00D7A208 /* AppDelegate+LaunchAd.swift */,
 				61EFF78621095C440066F816 /* ViewController.swift */,
 				61EFF78821095C440066F816 /* Main.storyboard */,
 				61EFF78B21095C450066F816 /* Assets.xcassets */,
@@ -159,6 +164,7 @@
 				61EFF7CC210F11930066F816 /* LaunchVideoAd.json */,
 				61EFF7CD210F11930066F816 /* video0.mp4 */,
 				61EFF7CE210F11930066F816 /* video1.mp4 */,
+				61CD691C211144E900D7A208 /* ad_douyin.mp4 */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -229,6 +235,7 @@
 				61EFF7D5210F11930066F816 /* image4.jpg in Resources */,
 				61EFF7D4210F11930066F816 /* image3.jpg in Resources */,
 				61EFF78F21095C450066F816 /* LaunchScreen.storyboard in Resources */,
+				61CD691D211144E900D7A208 /* ad_douyin.mp4 in Resources */,
 				61EFF7CF210F11930066F816 /* image0.jpg in Resources */,
 				61EFF7D3210F11930066F816 /* image2.jpg in Resources */,
 				61EFF7D7210F11930066F816 /* LaunchVideoAd.json in Resources */,
@@ -247,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61EFF7AC2109BBF30066F816 /* ZDLaunchAdDownloader.swift in Sources */,
+				61CD691F211152DB00D7A208 /* AppDelegate+LaunchAd.swift in Sources */,
 				61EFF7BE210EB3580066F816 /* Extensions.swift in Sources */,
 				61EFF7AA2109BAB80066F816 /* ZDLaunchAdController.swift in Sources */,
 				61EFF7A82109B8680066F816 /* ZDLaunchAdImageManager.swift in Sources */,

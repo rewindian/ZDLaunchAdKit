@@ -82,7 +82,7 @@ class ZDLaunchVideoAdConfiguration: ZDLaunchAdConfiguration {
     /// 设置视频是否只循环播放一次(true:只播放一次,false循环播放,default true)
     var isVideoCycleOnce = true
     
-    /// 是否关闭音频(default NO)
-    var isMuted = false
+    /// 是否关闭音频(default true 关闭音频)
+    var isMuted = true
     
 }

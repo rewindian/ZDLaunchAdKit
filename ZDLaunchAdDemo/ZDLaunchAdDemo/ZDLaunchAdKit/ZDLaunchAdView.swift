@@ -51,7 +51,7 @@ class ZDLaunchAdVideoView: UIImageView {
     //  视频的填满模式
     var videoGravity: AVLayerVideoGravity = AVLayerVideoGravity.resizeAspect {
         didSet {
-            //videoPlayer.videoGravity = videoGravity.rawValue
+            playerLayer?.videoGravity = videoGravity
         }
     }
     
@@ -92,9 +92,11 @@ class ZDLaunchAdVideoView: UIImageView {
     //  playerItem
     private var playerItem: AVPlayerItem?
     
-    var player: AVPlayer?
-    
+    //  playerLayer
     private var playerLayer: AVPlayerLayer?
+    
+    //  player
+    var player: AVPlayer?
     
     //MARK:- 初始化
     override init(frame: CGRect) {
